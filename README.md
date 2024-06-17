@@ -1,3 +1,7 @@
+# zosha
+Repository for the Zosha project, a college search app integrating AI to give students the most personalized list of colleges matching their exact preferences. 
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
