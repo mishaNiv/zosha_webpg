@@ -1,6 +1,14 @@
-import { useEffect, useState } from 'react';
 import './App.css';
+import React from 'react';
 import { Link } from 'react-router-dom';
+
+function ColList() {
+  return ( 
+    <div className="Col-List"> 
+      <Header />
+    </div>
+  );
+}
 
 function Header() {  
   return (
@@ -12,7 +20,7 @@ function Header() {
             alt="Logo" style={{ marginLeft: '10px', width: '20px', height: '20px' }} />
           </Link></li>
           <li><Link to="/finder" activeClassName="active">Find a College</Link></li>
-          <li><Link to="/col-list" activeClassName="active">College List</Link></li>
+          <li><Link to="/col-list" activeClassName="active" className='selected'>College List</Link></li>
           <li><Link to="/contact" activeClassName="active">Contact</Link></li>
         </ul>
       </nav>
@@ -20,4 +28,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default ColList;
