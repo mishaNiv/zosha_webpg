@@ -94,3 +94,88 @@
   font-weight: bold;
   font-size: 21px;
 }
+
+.aboutus {
+  margin-top: 115px;
+  margin-left: 75px;
+  font-size: 30px;
+}
+
+.aboutustxt {
+  font-size: 20px;
+  max-width: 1200px;
+}
+
+.searchBar {
+  margin-top: 150px;
+  background-color: white;
+  width: 500px;
+  border-radius: 10px;
+  height: 2.5rem;
+  padding: 0 15px;
+  box-shadow: 0px 0px 8px #ddd;
+  display: flex;
+  align-items: center;
+}
+
+input {
+  background-color: transparent;
+  border: none;
+  height: 100%;
+  font-size: 17px;
+  width: 100%;
+  margin-right: 5px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.searchIcon {
+  width: 20px;
+  height: 20px;
+  color: #244086;
+}
+
+.finder {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.searchResults {
+  width: 600px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 8px #ddd;
+  border-radius: 10px;
+  margin-top: 1rem;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.searchResult {
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.searchResult:hover {
+  background-color: #efefef;
+}
+
+.collistpg {
+  display: flex;
+  flex-direction: column;
+}
+
+.collegeTitle {
+  margin-top: 100px;
+  margin-left: 50px;
+  font-size: x-large;
+  font-weight: bold;
+}
+
+.collegeList {
+  margin-left: 50px;
+}
