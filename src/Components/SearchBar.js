@@ -1,6 +1,7 @@
 import '../App.css';
 import React, {useState} from 'react'
 import {FaSearch} from 'react-icons/fa'
+import OpenAI from "openai";
 
 const SearchBar = ({ setResults }) => {
     const [searchInput, setSearchInput] = useState("");
