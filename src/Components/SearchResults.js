@@ -7,17 +7,24 @@ const SearchResults = ({ results }) => {
     const { listAdd } = useContext(CollegeListContext);
 
     const finderSelectHandler = (collegeName) => {
-        alert(`${collegeName} added to list`);
         listAdd(collegeName);
     }
 
     return (
-        <div key={id}>
-            <div className='searchResult'>{result.name}
-            <button className='addButton' onClick={() => finderSelectHandler(result.name)}></button>
-            </div>                            
+        <div className='searchResults'>
+            {
+                results.map((result, id) => {
+                    return (
+                        <div key={id}>
+                            <div className='searchResult'>{result.name}
+                            <button className='addButton' onClick={() => finderSelectHandler(result.name)}></button>
+                            </div>                            
+                        </div>
+                    );
+                })
+            }
         </div>
-    );
+    )
 }
 
 export default SearchResults;
