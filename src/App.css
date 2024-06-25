@@ -120,14 +120,30 @@ input:focus {
   overflow-y: scroll;
 }
 
+
 .searchResult {
   padding: 10px 20px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; 
+  flex: 1;
 }
 
 .searchResult:hover {
   background-color: #efefef;
 }
+
+.addButton {
+  background-image: url(plus_icon.png);
+  background-size: cover;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  border-radius: 20%;
+  border-width: 1.5px;
+}
+
 
 .collistpg {
   display: flex;

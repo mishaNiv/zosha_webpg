@@ -9,6 +9,12 @@ export const CollegeListProvider = ({ children }) => {
 
   const listAdd = (newCollege) => {
     setCollegeList((prevList) => [...prevList, newCollege]);
+    if (!collegeList.includes(newCollege)) {
+      setCollegeList((prevList) => [...prevList, newCollege]);
+      alert(`${newCollege} added to list`);
+    } else {
+      alert(`${newCollege} is already in your list`);
+    }
   };
 
   return (

@@ -12,17 +12,12 @@ const SearchResults = ({ results }) => {
     }
 
     return (
-        <div className='searchResults'>
-            {
-                results.map((result, id) => {
-                    return <div className='searchResult' key={id} 
-                            onClick={() => finderSelectHandler(result.name)}>
-                        {result.name}
-                    </div>
-                })
-            }
+        <div key={id}>
+            <div className='searchResult'>{result.name}
+            <button className='addButton' onClick={() => finderSelectHandler(result.name)}></button>
+            </div>                            
         </div>
-    )
+    );
 }
 
 export default SearchResults;
