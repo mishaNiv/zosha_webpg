@@ -1,14 +1,6 @@
 import React, {useContext} from 'react';
 import '../App.css';
 import { CollegeListContext } from '../CollegeListContext';
-import OpenAI from "openai";
-
-const openai = new OpenAI({
-    organization: "org-IeNG9OKxN1QKicEY89eso7sn",
-    project: "proj_vfzVdnagUhHybW0Kxgq0GnJt",
-    apiKey: "col-search-api",
-    dangerouslyAllowBrowser: true,
-});
 
 const SearchResults = ({ results }) => {
 
