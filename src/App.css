@@ -109,15 +109,15 @@ input:focus {
 }
 
 .searchResults {
-  width: 600px;
+  width: 1000px;
   background-color: white;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 8px #ddd;
-  border-radius: 10px;
   margin-top: 1rem;
-  max-height: 300px;
+  /*max-height: 300px;
   overflow-y: scroll;
+  box-shadow: 0px 0px 8px #ddd;
+  border-radius: 10px;*/
 }
 
 

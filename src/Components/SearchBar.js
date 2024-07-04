@@ -6,7 +6,7 @@ import OpenAI from "openai";
 const openai = new OpenAI({
     organization: "org-IeNG9OKxN1QKicEY89eso7sn",
     project: "proj_vfzVdnagUhHybW0Kxgq0GnJt",
-    apiKey: 'col-search-api',
+    apiKey: "dummy-key",
     dangerouslyAllowBrowser: true,
 });
 
@@ -21,20 +21,31 @@ const SearchBar = ({ setResults }) => {
     };
 
     const handleKeyDown = (enter) => {
-        if (enter.keyCode === 13) {
-            fetchData(searchInput);     
+        if (enter.keyCode === 13) {            
+            setSearchInput("Loading...");
+            fetchData(searchInput); 
         }
     }
+    
+    async function fetchData(value) {
+        if (value.length === 0) {return;}
 
-    const fetchData = (value) => {
-        fetch("https://jsonplaceholder.typicode.com/users").then((response) => 
-            response.json()).then(json => {
-                results = json.filter((user) => {
-                    return value && user && user.name && 
-                        user.name.toLowerCase().includes(value);
-                })  
-                setResults(results);             
-            });
+        let messages = [{ role: "system", content: "You are a intelligent assistant for college searches." }];
+        messages.push({ role: "user", content: value});   
+
+        const completion = await openai.chat.completions.create({
+            messages: messages,
+            model: "gpt-4o",
+        });
+
+        const content = completion.choices[0].message.content;
+
+        if (typeof content === 'string') {
+            setResults(content);
+        } else {
+            console.error("Unexpected content format:", content);
+            setResults("");
+        }
     }
     
     return (
