@@ -11,14 +11,16 @@ const FormattedContent = ({ content }) => {
 
         const lines = text.split('\n');
         const elements = lines.map((line, index) => {
-            if (line.startsWith('###')) {
-                return <br key={index} />;
-            } else if (line.includes('**')) {
+            if (line.includes('**')) {
                 const boldParts = line.split('**').map((part, i) => {
-                    return i % 2 === 1 ? <strong key={i}>{part}</strong> : part;
+                    return i % 2 === 1 ? <strong key={i} style={{textDecoration: 'underline', fontWeight: 'normal'}}>
+                        {part}</strong> : part;
                 });
                 return <p key={index}>{boldParts}</p>;
-            } else if (line.startsWith('-')) {
+            } else if (line.startsWith('###')) {
+                return <p key={index} style={{fontSize: 22, fontWeight: 'bold'}}>
+                    {line.replace('###', '')}</p>
+            } else if (line.startsWith('-')) { 
                 return <li key={index}>{line.replace(/^- /, '')}</li>;
             } else {
                 return <p key={index}>{line}</p>;
@@ -52,6 +54,8 @@ const SearchResults = ({ results }) => {
                 })*/
 
                 <FormattedContent content={results}/>
+                /* */
+                /*<div>{JSON.stringify([results])}</div> */
             }
         </div>
     )
