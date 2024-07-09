@@ -6,15 +6,20 @@ const FormattedContent = ({ content }) => {
     const parseContent = (text) => {
         if (typeof text !== 'string') {
             console.error("Invalid content format:", text);
-            return null; // Or return some fallback UI
+            return null;
         }
 
         const lines = text.split('\n');
         const elements = lines.map((line, index) => {
             if (line.startsWith('###')) {
                 return <br key={index} />;
-            } else if (line.startsWith('**')) {
-                return <strong key={index}>{line.replace(/\*\*/g, '')}</strong>;
+            } else if (line.includes('**')) {
+                const boldParts = line.split('**').map((part, i) => {
+                    return i % 2 === 1 ? <strong key={i}>{part}</strong> : part;
+                });
+                return <p key={index}>{boldParts}</p>;
+            } else if (line.startsWith('-')) {
+                return <li key={index}>{line.replace(/^- /, '')}</li>;
             } else {
                 return <p key={index}>{line}</p>;
             }
