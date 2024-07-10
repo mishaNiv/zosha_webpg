@@ -39,8 +39,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "apikeys": {
-    "col-search-api": "dummy-col-search-api-key"
   }
 }
