@@ -17,11 +17,11 @@ function Header({currPage}) {
           <li><Link to="/col-list" activeClassName="active" className={currPage === 'ColList' ? 'selected' : ''}>
             College List
           </Link></li>
-          <li><Link to="/contact" activeClassName="active" className={currPage === 'Contact' ? 'selected' : ''}>
-            Contact
-          </Link></li>
           <li><Link to="/fyp" activeClassName="active" className={currPage === 'Fyp' ? 'selected' : ''}>
             Explore
+          </Link></li>
+          <li><Link to="/contact" activeClassName="active" className={currPage === 'Contact' ? 'selected' : ''}>
+            Contact
           </Link></li>
         </ul>
       </nav>
