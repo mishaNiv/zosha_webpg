@@ -6,7 +6,7 @@ import OpenAI from "openai";
 const openai = new OpenAI({
     organization: "org-IeNG9OKxN1QKicEY89eso7sn",
     project: "proj_vfzVdnagUhHybW0Kxgq0GnJt",
-    apiKey: "dummy-key",
+    apiKey: "dummykey",
     dangerouslyAllowBrowser: true,
 });
 
@@ -39,7 +39,9 @@ const SearchBar = ({ setResults }) => {
         if (value.length === 0) {return;}
 
         let messages = [{ role: "system", content: "You are a intelligent assistant for college searches." }];
-        messages.push({ role: "user", content: value});   
+        messages.push({ role: "user", content: 
+            ("Take the following preferences and return a long semicolon separated list of " +
+                "colleges that fit them, include no descriptions" + value)});   
 
         const completion = await openai.chat.completions.create({
             messages: messages,
