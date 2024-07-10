@@ -20,6 +20,9 @@ function Header({currPage}) {
           <li><Link to="/contact" activeClassName="active" className={currPage === 'Contact' ? 'selected' : ''}>
             Contact
           </Link></li>
+          <li><Link to="/fyp" activeClassName="active" className={currPage === 'Fyp' ? 'selected' : ''}>
+            Explore
+          </Link></li>
         </ul>
       </nav>
     </header>
