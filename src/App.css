@@ -124,7 +124,6 @@ input:focus {
 
 .searchResult {
   padding: 10px 20px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between; 
@@ -144,7 +143,6 @@ input:focus {
   border-radius: 20%;
   border-width: 1.5px;
 }
-
 
 .collistpg {
   display: flex;
@@ -227,4 +225,46 @@ input:focus {
   color: gray;
   margin-left: 30px;
   margin-bottom: 40px;
+}
+
+.collistsnippet {
+  margin-top: 35px;
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.collistsniptext {
+  font-size: 18px;
+  margin-right: 999px;
+}
+
+.collistsnipbutton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(69, 133, 222);
+  display: inline-flex;
+  align-items: center;
+}
+
+.collistsnipbutton::after {
+  content: '\2192';
+  margin-left: 15px; 
+}
+
+.collistsnip {
+  color: rgb(46, 98, 171);
+  margin-top: -2px;
+  list-style: none;
+}
+
+.collistsnip li:before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  padding-left: 60px;
 }
