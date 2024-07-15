@@ -41,7 +41,8 @@ const SearchBar = ({ setResults }) => {
         let messages = [{ role: "system", content: "You are a intelligent assistant for college searches." }];
         messages.push({ role: "user", content: 
             ("Take the following preferences and return a long semicolon separated list of " +
-                "colleges that fit them, include no descriptions" + value)});   
+                "colleges that fit them (ordered by best fit), include no descriptions, if location preferences aren't " + 
+                "included, assume the location is the United States of America, and don't number the colleges " + value)});   
 
         const completion = await openai.chat.completions.create({
             messages: messages,
