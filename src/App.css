@@ -114,17 +114,16 @@ input:focus {
   background-color: white;
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: 40px;
   max-height: 300px;
   overflow-y: scroll;
-  box-shadow: 0px 0px 8px #ddd;
+  box-shadow: 0px 0px 9px #ceebff;
   border-radius: 10px;
 }
 
 
 .searchResult {
   padding: 10px 20px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between; 
@@ -145,7 +144,6 @@ input:focus {
   border-width: 1.5px;
 }
 
-
 .collistpg {
   display: flex;
   flex-direction: column;
@@ -160,4 +158,113 @@ input:focus {
 
 .collegeList {
   margin-left: 50px;
+}
+
+.homepagesnippets {
+  margin-top: 100px;
+  margin-left: 40px;
+}
+
+.findersnippet {  
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.findersniptext {
+  font-size: 18px;
+  margin-right: 396px;
+}
+
+.findersnipbutton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(69, 133, 222);
+  display: inline-flex;
+  align-items: center;
+}
+
+.findersnipbutton::after {
+  content: '\2192';
+  margin-left: 15px; 
+}
+
+.exploresnippet {
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.exploresniptext {
+  font-size: 18px;
+  margin-right: 786px;
+}
+
+.exploresnipbutton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(69, 133, 222);
+  display: inline-flex;
+  align-items: center;
+}
+
+.exploresnipbutton::after {
+  content: '\2192';
+  margin-left: 15px; 
+}
+
+.explorewidgets {
+  color: gray;
+  margin-left: 30px;
+  margin-bottom: 40px;
+}
+
+.collistsnippet {
+  margin-top: 35px;
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.collistsniptext {
+  font-size: 18px;
+  margin-right: 999px;
+}
+
+.collistsnipbutton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(69, 133, 222);
+  display: inline-flex;
+  align-items: center;
+}
+
+.collistsnipbutton::after {
+  content: '\2192';
+  margin-left: 15px; 
+}
+
+.collistsnip {
+  color: rgb(46, 98, 171);
+  margin-top: -2px;
+  list-style: none;
+}
+
+.collistsnip li:before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  padding-left: 60px;
 }
