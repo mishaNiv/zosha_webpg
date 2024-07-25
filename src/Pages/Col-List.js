@@ -12,7 +12,13 @@ function ColList() {
       <p className='collegeTitle'>My College List</p>
       <ul className='collegeList'>
         {collegeList.map((newCollege, index) => (
-          <li key={index}>{newCollege}</li>
+          <div className='collegeListItem'>
+            <li key={index}>{newCollege}</li>
+            <div className='collegeListButtons'>
+              <button className='collegeListUp'></button>
+              <button className='collegeListDown'></button>
+            </div>
+          </div>          
         ))}
       </ul>
     </div>

@@ -6,6 +6,8 @@
   color: #384DA2;
 }
 
+
+/* HEADER FORMATTING */
 .header {
   background-color: #3b5cae;
   padding: 10px 20px;
@@ -60,6 +62,8 @@
   font-size: 21px;
 }
 
+
+/* ABOUT US FORMATTING */
 .aboutus {
   margin-top: 115px;
   margin-left: 75px;
@@ -71,6 +75,8 @@
   max-width: 1200px;
 }
 
+
+/* SEARCH BAR FORMATTING */
 .searchBar {
   margin-top: 150px;
   background-color: white;
@@ -109,6 +115,8 @@ input:focus {
   flex-direction: column;
 }
 
+
+/* SEARCH RESULTS FORMATTING */
 .searchResults {
   width: 1000px;
   background-color: white;
@@ -120,7 +128,6 @@ input:focus {
   box-shadow: 0px 0px 9px #ceebff;
   border-radius: 10px;
 }
-
 
 .searchResult {
   padding: 10px 20px;
@@ -144,6 +151,8 @@ input:focus {
   border-width: 1.5px;
 }
 
+
+/* COLLEGE LIST PAGE FORMATTING */
 .collistpg {
   display: flex;
   flex-direction: column;
@@ -157,9 +166,71 @@ input:focus {
 }
 
 .collegeList {
-  margin-left: 50px;
+  margin-left: 65px;
+  margin-top: 20px;
+  min-height: 100px;
+  min-width: 200px;
+  max-width: 500px;
+  width:fit-content;
+  background-color: white;
+  display: flex;
+  flex-direction: column;  
+  box-shadow: 0px 0px 3px #ceebff;
+  border-radius: 5px;
 }
 
+.collegeListItem {
+  list-style: none;
+  margin-left: -40px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  flex: 1;
+}
+
+.collegeListButtons {
+  padding-left: 40px;
+}
+
+.collegeListUp {
+  background-image: url(up_button.png);
+  background-size: cover;
+  width: 20px;
+  height: 18px;
+  cursor: pointer;
+  border-radius: 20%;
+  border-width: 1.5px;
+}
+
+.collegeListDown {
+  margin-left: 5px;
+  background-image: url(down_button.png);
+  background-size: cover;
+  width: 20px;
+  height: 18px;
+  cursor: pointer;
+  border-radius: 20%;
+  border-width: 1.5px;
+}
+
+.collegeListItem:last-child {
+  padding-bottom: 15px;
+}
+
+.collegeListItem:first-child {
+  padding-top: 10px;
+}
+
+.collegeListItem:hover {
+  background-color: #efefef;
+}
+
+
+/* HOME PAGE FORMATTING */
 .homepagesnippets {
   margin-top: 100px;
   margin-left: 40px;
