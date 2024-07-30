@@ -165,6 +165,10 @@ input:focus {
   font-weight: bold;
 }
 
+.emptyMessage {
+  margin-left: 50px;
+}
+
 .collegeList {
   margin-left: 65px;
   margin-top: 20px;
