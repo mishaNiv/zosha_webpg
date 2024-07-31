@@ -32,12 +32,12 @@
 }
 
 .header nav ul li {
-  margin-right: 125px;
+  margin-right: 175px;
   cursor: pointer;
 }
 
 .header nav ul li:first-child {
-  margin-left: -60px;
+  margin-left: -50px;
 }
 
 .header nav ul li:last-child {
@@ -78,7 +78,7 @@
 
 /* SEARCH BAR FORMATTING */
 .searchBar {
-  margin-top: 150px;
+  margin-top: 135px;
   background-color: white;
   width: 500px;
   border-radius: 10px;
@@ -117,13 +117,19 @@ input:focus {
 
 
 /* SEARCH RESULTS FORMATTING */
+.preferencesRequest {
+  margin-top: 40px;
+  width: fit-content;
+  max-width: 1000px;
+}
+
 .searchResults {
   width: 1000px;
   background-color: white;
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
-  max-height: 300px;
+  margin-top: 60px;
+  max-height: 380px;
   overflow-y: scroll;
   box-shadow: 0px 0px 9px #ceebff;
   border-radius: 10px;
@@ -268,33 +274,6 @@ input:focus {
   margin-left: 40px;
 }
 
-.findersnippet {  
-  margin-right: 80px;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
-}
-
-.findersniptext {
-  font-size: 18px;
-  margin-right: 396px;
-}
-
-.findersnipbutton {
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-  font-size: 18px;
-  color: rgb(69, 133, 222);
-  display: inline-flex;
-  align-items: center;
-}
-
-.findersnipbutton::after {
-  content: '\2192';
-  margin-left: 15px; 
-}
 
 .exploresnippet {
   margin-right: 80px;
@@ -330,6 +309,34 @@ input:focus {
   margin-bottom: 40px;
 }
 
+.findersnippet {  
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.findersniptext {
+  font-size: 18px;
+  margin-right: 396px;
+}
+
+.findersnipbutton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(69, 133, 222);
+  display: inline-flex;
+  align-items: center;
+}
+
+.findersnipbutton::after {
+  content: '\2192';
+  margin-left: 15px; 
+}
+
 .collistsnippet {
   margin-top: 35px;
   margin-right: 80px;
@@ -362,16 +369,11 @@ input:focus {
 .collistsnip {
   color: rgb(46, 98, 171);
   margin-top: -2px;
-  list-style: none;
+  list-style: decimal;
 }
 
-.collistsnip li:before {
-  content: "-";
-  position: absolute;
-  left: 0;
-  padding-left: 60px;
-}
 
+/* FYP FORMATTING */
 .swipe {
   position: absolute;
 }
@@ -399,12 +401,9 @@ input:focus {
   height: 100%;
 }
 
-.swipe:last-of-type {
-
-}
-
 .card h3 {
   position: absolute;
   bottom: 0;
   margin: 10px;
   color: #fff;
+}

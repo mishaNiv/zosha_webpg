@@ -1,12 +1,14 @@
 import '../App.css';
-import React, {useContext} from 'react';
+import React, {useContext, useState} from 'react';
 import { CollegeListProvider, CollegeListContext } from '../CollegeListContext';
+import OpenAI from "openai";
 
 function ColListButtons(props) {
     const { collegeList, setCollegeList } = useContext(CollegeListContext);
+    const preferences = useState([]);
 
     const moveItemDown = (index) => {
-        if (index == 0) { return; }
+        if (index == (collegeList.length - 1)) { return; }
         const newList = [...collegeList];
         [newList[index], newList[index + 1]] = [newList[index + 1], newList[index]];
         setCollegeList(newList);
@@ -21,6 +23,7 @@ function ColListButtons(props) {
 
     const deleteItem = (index) => {
         const newList = collegeList.filter((_, i) => i !== index);
+        preferences.push(prompt("Help us help you! \nIn as few words as possible, why did you remove this college?"));
         setCollegeList(newList);
     }
 

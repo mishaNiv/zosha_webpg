@@ -10,11 +10,6 @@ const FormattedSearchList = ({ list }) => {
     }
 
     const parseContent = (text) => {
-        if (typeof text !== 'string') {
-            console.error("Invalid content format:", text);
-            return null;
-        }
-
         const colleges = text.split(';');
         const elements = colleges.map((college, index) => {
             return (
@@ -34,6 +29,17 @@ const FormattedSearchList = ({ list }) => {
 }
 
 const SearchResults = ({ results }) => {
+
+    if (typeof results !== 'string') {
+        console.error("Invalid content format:", results);
+        return null;
+    }
+
+    if (!results.includes(';')) {
+        return (
+            <div className='preferencesRequest'>{results}</div>
+        )
+    }
 
     return (
         <div className='searchResults'>
