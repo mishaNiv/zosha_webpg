@@ -378,20 +378,18 @@ input:focus {
   position: absolute;
 }
 
-.card-container {
-  width: 90vw;
-  max-width: 260px;
-  height: 300px;
+.fyp .card-container {
+  width: 400px;
+  height: 650px;
 }
 
 .card {
   position: relative;
   background-color: #fff;
-  width: 80vw;
-  max-width: 260px;
-  height: 300px;
+  width: 400px;
+  height: 650px;
   box-shadow: 0px 0px 60px 0px rgba(0,0,0,0.30);
-  border-radius: 20px;
+  border-radius: 30px;
   background-size: cover;
   background-position: center;
 }
@@ -406,4 +404,6 @@ input:focus {
   bottom: 0;
   margin: 10px;
   color: #fff;
+}
+
 }
