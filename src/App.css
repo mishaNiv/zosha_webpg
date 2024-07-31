@@ -6,6 +6,8 @@
   color: #384DA2;
 }
 
+
+/* HEADER FORMATTING */
 .header {
   background-color: #3b5cae;
   padding: 10px 20px;
@@ -60,6 +62,8 @@
   font-size: 21px;
 }
 
+
+/* ABOUT US FORMATTING */
 .aboutus {
   margin-top: 115px;
   margin-left: 75px;
@@ -71,6 +75,8 @@
   max-width: 1200px;
 }
 
+
+/* SEARCH BAR FORMATTING */
 .searchBar {
   margin-top: 150px;
   background-color: white;
@@ -109,22 +115,22 @@ input:focus {
   flex-direction: column;
 }
 
+
+/* SEARCH RESULTS FORMATTING */
 .searchResults {
   width: 1000px;
   background-color: white;
   display: flex;
   flex-direction: column;
-  margin-top: 1rem;
+  margin-top: 40px;
   max-height: 300px;
   overflow-y: scroll;
-  box-shadow: 0px 0px 8px #ddd;
+  box-shadow: 0px 0px 9px #ceebff;
   border-radius: 10px;
 }
 
-
 .searchResult {
   padding: 10px 20px;
-  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: space-between; 
@@ -146,6 +152,7 @@ input:focus {
 }
 
 
+/* COLLEGE LIST PAGE FORMATTING */
 .collistpg {
   display: flex;
   flex-direction: column;
@@ -158,8 +165,211 @@ input:focus {
   font-weight: bold;
 }
 
-.collegeList {
+.emptyMessage {
   margin-left: 50px;
+}
+
+.collegeListBlock {
+  margin-left: 65px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  min-width: 200px;
+  max-width: 500px;
+}
+
+.collegeList {
+  min-height: 50px;
+  min-width: 200px;
+  max-width: 500px;
+  width:fit-content;
+  background-color: white;
+  display: flex;
+  flex-direction: column;  
+  box-shadow: 0px 0px 3px #ceebff;
+  border-radius: 5px;
+  position: relative;
+}
+
+.collegeListItem {
+  list-style: none;
+  margin-left: -40px;
+  padding-left: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-right: 15px;
+  display: flex;
+  align-items: center; 
+  justify-content: space-between;
+  flex: 1;
+}
+
+.collegeListButtons {
+  padding-left: 40px;
+}
+
+.collegeListUp {
+  background-image: url(Images/up_button.png);
+  background-size: cover;
+  width: 20px;
+  height: 18px;
+  cursor: pointer;
+  border-radius: 20%;
+  border-width: 1.5px;
+}
+
+.collegeListDown {
+  margin-left: 5px;
+  background-image: url(Images/down_button.png);
+  background-size: cover;
+  width: 20px;
+  height: 18px;
+  cursor: pointer;
+  border-radius: 20%;
+  border-width: 1.5px;
+}
+
+.collegeListDelete {
+  margin-left: 5px;
+  background-image: url(Images/delete_button.png);
+  background-size: cover;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  border-width: 0;
+  background-color: transparent;
+}
+
+.collegeListItem:last-child {
+  padding-bottom: 15px;
+}
+
+.collegeListItem:first-child {
+  padding-top: 10px;
+}
+
+.collegeListItem:hover {
+  background-color: #efefef;
+}
+
+.clearListButton {
+  align-self: flex-end;
+  margin-inline-start: 100px;
+  background-color: #ceebff;
+  border-radius: 3px;
+  border-width: 1.5px;
+}
+
+
+/* HOME PAGE FORMATTING */
+.homepagesnippets {
+  margin-top: 100px;
+  margin-left: 40px;
+}
+
+.findersnippet {  
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.findersniptext {
+  font-size: 18px;
+  margin-right: 396px;
+}
+
+.findersnipbutton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(69, 133, 222);
+  display: inline-flex;
+  align-items: center;
+}
+
+.findersnipbutton::after {
+  content: '\2192';
+  margin-left: 15px; 
+}
+
+.exploresnippet {
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.exploresniptext {
+  font-size: 18px;
+  margin-right: 786px;
+}
+
+.exploresnipbutton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(69, 133, 222);
+  display: inline-flex;
+  align-items: center;
+}
+
+.exploresnipbutton::after {
+  content: '\2192';
+  margin-left: 15px; 
+}
+
+.explorewidgets {
+  color: gray;
+  margin-left: 30px;
+  margin-bottom: 40px;
+}
+
+.collistsnippet {
+  margin-top: 35px;
+  margin-right: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.collistsniptext {
+  font-size: 18px;
+  margin-right: 999px;
+}
+
+.collistsnipbutton {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgb(69, 133, 222);
+  display: inline-flex;
+  align-items: center;
+}
+
+.collistsnipbutton::after {
+  content: '\2192';
+  margin-left: 15px; 
+}
+
+.collistsnip {
+  color: rgb(46, 98, 171);
+  margin-top: -2px;
+  list-style: none;
+}
+
+.collistsnip li:before {
+  content: "-";
+  position: absolute;
+  left: 0;
+  padding-left: 60px;
 }
 
 .swipe {
@@ -198,4 +408,3 @@ input:focus {
   bottom: 0;
   margin: 10px;
   color: #fff;
-}
