@@ -14,7 +14,7 @@ export const CollegeListProvider = ({ children }) => {
   };
 
   return (
-    <CollegeListContext.Provider value={{ collegeList, listAdd }}>
+    <CollegeListContext.Provider value={{ collegeList, setCollegeList, listAdd }}>
       {children}
     </CollegeListContext.Provider>
   );
