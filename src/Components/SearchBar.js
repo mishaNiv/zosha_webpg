@@ -1,11 +1,11 @@
 import '../App.css';
-import React, {useState} from 'react'
-import {FaSearch} from 'react-icons/fa'
+import React, { useState } from 'react'
+import { FaSearch } from 'react-icons/fa'
 import { useAPI } from '../Components/APIContext.js'
 
 const SearchBar = ({ setResults }) => {
-    const [placeHolderText, setPlaceHolder] = useState("Enter your college preferences here");
-    const [searchInput, setSearchInput] = useState("");
+    const [ placeHolderText, setPlaceHolder ] = useState("Enter your college preferences here");
+    const [ searchInput, setSearchInput ] = useState("");
     const { API } = useAPI();
     const messages = [{"role": "system", "content" : "You are an AI assistant for college searches"}];
     let results = [];
