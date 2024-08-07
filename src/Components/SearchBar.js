@@ -1,18 +1,12 @@
 import '../App.css';
-import React, {useState} from 'react'
-import {FaSearch} from 'react-icons/fa'
-import OpenAI from "openai";
-
-const openai = new OpenAI({
-    organization: "org-IeNG9OKxN1QKicEY89eso7sn",
-    project: "proj_vfzVdnagUhHybW0Kxgq0GnJt",
-    apiKey: "dummykey",
-    dangerouslyAllowBrowser: true,
-});
+import React, { useState } from 'react'
+import { FaSearch } from 'react-icons/fa'
+import { useAPI } from '../Components/APIContext.js'
 
 const SearchBar = ({ setResults }) => {
-    const [placeHolderText, setPlaceHolder] = useState("Enter your college preferences here");
-    const [searchInput, setSearchInput] = useState("");
+    const [ placeHolderText, setPlaceHolder ] = useState("Enter your college preferences here");
+    const [ searchInput, setSearchInput ] = useState("");
+    const { API } = useAPI();
     const messages = [{"role": "system", "content" : "You are an AI assistant for college searches"}];
     let results = [];
 
@@ -46,7 +40,7 @@ const SearchBar = ({ setResults }) => {
                 "aren't included, assume the location is the United States of America, and do NOT number the colleges " + 
                 "(including the first one) " + value)});   
 
-        const completion = await openai.chat.completions.create({
+        const completion = await API.chat.completions.create({
             messages: messages,
             model: "gpt-4o",
         });

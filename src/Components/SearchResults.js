@@ -1,6 +1,6 @@
 import '../App.css';
 import React, {useContext} from 'react';
-import { CollegeListContext } from '../CollegeListContext';
+import { CollegeListContext } from './CollegeListContext';
 
 const FormattedSearchList = ({ list }) => {
     const { listAdd } = useContext(CollegeListContext);
@@ -37,7 +37,7 @@ const SearchResults = ({ results }) => {
 
     if (!results.includes(';')) {
         return (
-            <div className='preferencesRequest'>{results}</div>
+            <div className='preferencesRequest'>{results + " Please enter these preferences in addition to your original search."}</div>
         )
     }
 

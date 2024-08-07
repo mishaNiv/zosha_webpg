@@ -1,7 +1,6 @@
 import '../App.css';
 import React, {useContext, useState} from 'react';
-import { CollegeListProvider, CollegeListContext } from '../CollegeListContext';
-import OpenAI from "openai";
+import { CollegeListProvider, CollegeListContext } from './CollegeListContext';
 
 function ColListButtons(props) {
     const { collegeList, setCollegeList } = useContext(CollegeListContext);
