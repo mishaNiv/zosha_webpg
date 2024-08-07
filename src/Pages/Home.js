@@ -2,7 +2,7 @@ import '../App.css';
 import Header from '../Components/Header';
 import { Link } from 'react-router-dom';
 import React, {useContext} from 'react';
-import { CollegeListProvider, CollegeListContext } from '../CollegeListContext';
+import { CollegeListProvider, CollegeListContext } from '../Components/CollegeListContext';
 
 function Home() {
   return ( 

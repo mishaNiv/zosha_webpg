@@ -2,67 +2,64 @@ import '../App.css';
 import Header from '../Components/Header.js';
 import ColListButtons from '../Components/ColListButtons.js';
 import React, { useContext, useState } from 'react';
-import { CollegeListProvider, CollegeListContext } from '../CollegeListContext';
-import OpenAI from "openai";
+import { CollegeListContext } from '../Components/CollegeListContext.js';
+import { useAPI } from '../Components/APIContext.js';
 
-const openai = new OpenAI({
-    organization: "org-IeNG9OKxN1QKicEY89eso7sn",
-    project: "proj_vfzVdnagUhHybW0Kxgq0GnJt",
-    apiKey: "dummykey",
-    dangerouslyAllowBrowser: true,
-});
+const CollegeSummary = ({ college, top, description }) => {
+  return (
+    <div className="collegeSummary" style={{ top: `${top}px` }}>
+      <div className="collegeSummaryTriangle"></div>
+      <h3>{college}</h3>
+      <p>{description}</p>
+    </div>
+  );
+};
 
 function ColList() {
   const { collegeList, setCollegeList } = useContext(CollegeListContext);
-  const [ openCollegeIndex, setOpenCollegeIndex ] = useState(null);
-  const [ summaryTop, setSummaryTop ] = useState(0);
-  const [ collegeDescription, setCollegeDescription ] = useState(null);
+  const [openCollegeIndex, setOpenCollegeIndex] = useState(null);
+  const [summaryTop, setSummaryTop] = useState(0);
+  const [collegeDescription, setCollegeDescription] = useState("");
+  const { API } = useAPI();
 
-  const CollegeSummary = ({ index, college, top, description }) => {
+  const fetchData = async (college) => {
+    if (college.length === 0 || !API) return;
 
-    if (index === -1) {
-      college = 'Loading...';
-      description = null;
-    }
-    return (
-      <div className="collegeSummary" style={{ top: `${top}px` }}>
-        <h3>{college}</h3>
-        <p>{collegeDescription}</p>
-      </div>
-    );
-  };
-  
-  async function fetchData(college) {
+    let messages = [
+      { role: "system", content: "You are an intelligent assistant for college searches." },
+      {
+        role: "user",
+        content: `Provide a short description, no more than 50 words, of the following college that` + 
+          `would be suited for a student deciding whether to apply for said college: ${college}`,
+      },
+    ];
 
-    if (college.length === 0) {return;}
-  
-    let messages = [{ role: "system", content: "You are a intelligent assistant for college searches." }];
-    messages.push({ role: "user", content: 
-        ("Provide a short description, no more than 50 words, of the following college that would be suited for a " + 
-          "student deciding whether to apply for said college: " + college)});   
-  
-    const completion = await openai.chat.completions.create({
+    try {
+      const completion = await API.chat.completions.create({
         messages: messages,
-        model: "gpt-4o",
-    });
-  
-    const content = completion.choices[0].message.content;
-  
-    if (typeof content === 'string') {
+        model: "gpt-4",
+      });
+
+      const content = completion.choices[0].message.content;
+      if (typeof content === "string") {
         setCollegeDescription(content);
-    } else {
+      } else {
         console.error("Unexpected content format:", content);
         setCollegeDescription("");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      setCollegeDescription("");
     }
-  }
+  };
 
   const handleCollegeClick = async (index, college) => {
     if (index === openCollegeIndex) {
       setOpenCollegeIndex(null);
-    } else { 
+    } else {
       await fetchData(college);
       setOpenCollegeIndex(index);
-      setSummaryTop(index*40);
+      setSummaryTop(index * 40);
     }
   };
 
@@ -74,7 +71,9 @@ function ColList() {
         <p className="emptyMessage">Your college list is empty. Add some colleges to get started!</p>
       ) : (
         <div>
-          <p className="nonemptyMessage">Click on colleges to learn more about them and use the buttons to change your list!</p>
+          <p className="nonemptyMessage">
+            Click on colleges to learn more about them and use the buttons to change your list!
+          </p>
           <div className="collegeListBlock">
             <ul className="collegeList">
               {collegeList.map((newCollege, index) => (
@@ -82,7 +81,7 @@ function ColList() {
                   <li onClick={() => handleCollegeClick(index, newCollege)}>{newCollege}</li>
                   <ColListButtons index={index} />
                   {openCollegeIndex === index && 
-                    <CollegeSummary index={index} college={newCollege} top={summaryTop} description={collegeDescription}/>}
+                    <CollegeSummary college={newCollege} top={summaryTop} description={collegeDescription} />}
                 </div>
               ))}
             </ul>
