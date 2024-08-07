@@ -17,9 +17,9 @@ const CollegeSummary = ({ college, top, description }) => {
 
 function ColList() {
   const { collegeList, setCollegeList } = useContext(CollegeListContext);
-  const [openCollegeIndex, setOpenCollegeIndex] = useState(null);
-  const [summaryTop, setSummaryTop] = useState(0);
-  const [collegeDescription, setCollegeDescription] = useState("");
+  const [ openCollegeIndex, setOpenCollegeIndex ] = useState(null);
+  const [ summaryTop, setSummaryTop ] = useState(0);
+  const [ collegeDescription, setCollegeDescription ] = useState("");
   const { API } = useAPI();
 
   const fetchData = async (college) => {
@@ -56,10 +56,11 @@ function ColList() {
   const handleCollegeClick = async (index, college) => {
     if (index === openCollegeIndex) {
       setOpenCollegeIndex(null);
-    } else {
-      await fetchData(college);
+    } else {      
       setOpenCollegeIndex(index);
+      setCollegeDescription('Loading...');
       setSummaryTop(index * 40);
+      await fetchData(college);
     }
   };
 
