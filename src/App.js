@@ -4,12 +4,14 @@ import ColList from './Pages/Col-List';
 import Contact from './Pages/Contact';
 import Finder from './Pages/Finder';
 import Fyp from './Pages/Fyp';
+import Onboarding from './Pages/Onboarding';
 import { HashRouter as Router, Routes, Route} from 'react-router-dom';
 import { CollegeListProvider } from './Components/CollegeListContext';
 import { APIProvider } from './Components/APIContext';
 
 function App() {
   return ( 
+<<<<<<< Updated upstream
     <APIProvider>
       <CollegeListProvider> 
         <Router>
@@ -23,6 +25,20 @@ function App() {
         </Router>
       </CollegeListProvider>
     </APIProvider>
+=======
+    <CollegeListProvider> 
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/col-list" element={<ColList />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/finder" element={<Finder />} />
+          <Route path="/fyp" element={<Fyp />} />
+          <Route path="/onboarding" element={<Onboarding />} />
+        </Routes>
+      </Router>
+    </CollegeListProvider>
+>>>>>>> Stashed changes
   );
 }
 
