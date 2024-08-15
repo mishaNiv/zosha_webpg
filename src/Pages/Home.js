@@ -19,8 +19,8 @@ function FinderPgSnip() {
   return (
     <div className='homepagesnippets'>
       <Link to="/onboarding">
-            <button>Sign Up</button>
-        </Link>
+        <button className='onboardingbutton'>Sign Up/Login</button>
+      </Link>
       <div className='exploresnippet'>
         <p className='exploresniptext'>Recommended colleges</p>
         <Link to="/fyp" activeClassName="active">
