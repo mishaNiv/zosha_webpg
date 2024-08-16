@@ -10,8 +10,7 @@ export const APIProvider = ({ children }) => {
         const openAIInstance = new OpenAI({
             organization: "org-IeNG9OKxN1QKicEY89eso7sn",
             project: "proj_vfzVdnagUhHybW0Kxgq0GnJt",
-            apiKey: "sk-proj-ADjI2aXTROcdTiBwZlCx_f1rY30bREbuJ-19CbQOKAJR0gtErOEbr0nVHvPKC40JqFD5TNOmuk" + 
-            "T3BlbkFJ9GYzOz273M7pnA4pElrTmHKFCBQYCyZFNMYnFnZ7KzMjEXF3FB0LlZZn0Tn7GY-D5-3oqiaqsA",
+            apiKey: "dummykey",
             dangerouslyAllowBrowser: true,
         });
 
