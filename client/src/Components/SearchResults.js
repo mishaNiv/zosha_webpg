@@ -3,7 +3,7 @@ import React, {useContext} from 'react';
 import { CollegeListContext } from './CollegeListContext';
 
 const FormattedSearchList = ({ list }) => {
-    const { listAdd, fetchCollegeList, setCollegeList } = useContext(CollegeListContext);
+    const { listAdd, fetchCollegeList, setCollegeList, collegeList } = useContext(CollegeListContext);
 
     const finderSelectHandler = (collegeName) => {
         listAdd(collegeName);        
@@ -14,11 +14,14 @@ const FormattedSearchList = ({ list }) => {
     const parseContent = (text) => {
         const colleges = text.split(';');
         const elements = colleges.map((college, index) => {
+            const isInList = collegeList.includes(college);
             return (
                 <div key={index}>
                     <div className='searchResult'>
                         {college}
-                        <button className='addButton' onClick={() => finderSelectHandler(college)}></button>
+                        <button className={isInList ? 'addedButton' : 'addButton'} 
+                            onClick={() => finderSelectHandler(college)} disabled={isInList}>    
+                        </button>
                     </div>
                 </div>
             );

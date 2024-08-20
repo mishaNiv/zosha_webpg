@@ -22,14 +22,13 @@ export const CollegeListProvider = ({ children }) => {
   useEffect(() => {fetchCollegeList()}, []);
 
   const listAdd = async (newCollege) => {
-    if (!collegeList.includes(newCollege)) {
-      try {
-        const payload = { college_name: newCollege };
-        await axios.post("http://localhost:3001/selected_colleges", payload);
-      } catch (error) {
-        console.error('Error adding college to list: ', error);
-      }
+    try {
+      const payload = { college_name: newCollege };
+      await axios.post("http://localhost:3001/selected_colleges", payload);
+    } catch (error) {
+      console.error('Error adding college to list: ', error);
     }
+    
   };
 
   const listRemove = async (collegeToRemove) => {
