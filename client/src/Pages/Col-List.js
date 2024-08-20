@@ -16,11 +16,13 @@ const CollegeSummary = ({ college, top, description }) => {
 };
 
 function ColList() {
-  const { collegeList, setCollegeList, fetchCollegeList } = useContext(CollegeListContext);
+  const { collegeList, setCollegeList, fetchCollegeList, listClear } = useContext(CollegeListContext);
   const [ openCollegeIndex, setOpenCollegeIndex ] = useState(null);
   const [ summaryTop, setSummaryTop ] = useState(0);
   const [ collegeDescription, setCollegeDescription ] = useState("");
   const { API } = useAPI();
+
+  useEffect(() => {fetchCollegeList()}, []);
 
   const fetchData = async (college) => {
     if (college.length === 0 || !API) return;
@@ -64,6 +66,11 @@ function ColList() {
     }
   };
 
+  const handleClearClick = () => {
+    listClear();
+    window.location.reload();
+  }
+
   return (
     <div className="collistpg">
       <Header currPage="ColList" />
@@ -86,7 +93,7 @@ function ColList() {
                 </div>
               ))}
             </ul>
-            <button className="clearListButton" onClick={() => { setCollegeList([]) }}>Clear list</button>
+            <button className="clearListButton" onClick={() => { handleClearClick() }}>Clear list</button>
           </div>
         </div>
       )}

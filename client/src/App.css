@@ -272,6 +272,7 @@ input:focus {
   background-color: #ceebff;
   border-radius: 3px;
   border-width: 1.5px;
+  cursor: pointer;
 }
 
 .collegeSummary {

@@ -3,10 +3,12 @@ import React, {useContext} from 'react';
 import { CollegeListContext } from './CollegeListContext';
 
 const FormattedSearchList = ({ list }) => {
-    const { listAdd } = useContext(CollegeListContext);
+    const { listAdd, fetchCollegeList, setCollegeList } = useContext(CollegeListContext);
 
     const finderSelectHandler = (collegeName) => {
-        listAdd(collegeName);
+        listAdd(collegeName);        
+        setCollegeList((prevList) => [...prevList, collegeName]);
+        fetchCollegeList();
     }
 
     const parseContent = (text) => {
