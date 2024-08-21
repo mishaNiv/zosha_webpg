@@ -1,7 +1,7 @@
 import '../App.css';
 import React, { useState } from 'react'
 import { FaSearch } from 'react-icons/fa'
-import { useAPI } from '../Components/APIContext.js'
+import { useAPI } from './APIContext.js'
 
 const SearchBar = ({ setResults }) => {
     const [ placeHolderText, setPlaceHolder ] = useState("Enter your college preferences here");

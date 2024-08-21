@@ -14,18 +14,20 @@ import { APIProvider } from './Components/APIContext';
 function App() {
   return ( 
     <CollegeListProvider> 
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/col-list" element={<ColList />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/finder" element={<Finder />} />
-          <Route path="/fyp" element={<Fyp />} />
-          <Route path="/onboarding" element={<Onboarding />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-        </Routes>
-      </Router>
+      <APIProvider>
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/col-list" element={<ColList />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/finder" element={<Finder />} />
+            <Route path="/fyp" element={<Fyp />} />
+            <Route path="/onboarding" element={<Onboarding />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+          </Routes>
+        </Router>
+      </APIProvider>
     </CollegeListProvider>
   );
 }

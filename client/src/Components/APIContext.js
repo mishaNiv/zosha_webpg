@@ -13,7 +13,7 @@ export const APIProvider = ({ children }) => {
             apiKey: "dummykey",
             dangerouslyAllowBrowser: true,
         });
-
+    
         setAPI(openAIInstance);
     }, []);
 
