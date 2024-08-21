@@ -18,6 +18,9 @@ function FinderPgSnip() {
   const { collegeList } = useContext(CollegeListContext);
   return (
     <div className='homepagesnippets'>
+      <Link to="/onboarding">
+        <button className='onboardingbutton'>Sign Up/Login</button>
+      </Link>
       <div className='exploresnippet'>
         <p className='exploresniptext'>Recommended colleges</p>
         <Link to="/fyp" activeClassName="active">
