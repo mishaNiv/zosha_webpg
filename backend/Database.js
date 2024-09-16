@@ -19,10 +19,15 @@ app.get('/', (req, res) => {
 })
 
 app.post("/selected_colleges", (req, res) => {
-    const { college_name } = req.body;
+
+    const { college_name, college_desc } = req.body;
 
     if (!college_name) {
         return res.status(400).send('College name is required');
+    }
+
+    if (!college_desc) {
+        return res.status(401).send('College description not received');
     }
 
     db.query("SELECT MAX(college_rank) as maxIndex from selected_colleges", (error, result) => {
@@ -32,8 +37,8 @@ app.post("/selected_colleges", (req, res) => {
 
         const maxIndex = result[0].maxIndex || 0;
 
-        db.query(`INSERT INTO selected_colleges (college_name, college_rank, add_date) VALUES (?, ?, NOW())`, 
-          [college_name, (maxIndex+1)], (err, result) => {
+        db.query(`INSERT INTO selected_colleges (college_name, college_rank, add_date, college_desc) VALUES (?, ?, NOW(), ?)`, 
+          [college_name, (maxIndex+1), college_desc], (err, result) => {
             if (err) {
                 console.error('Error adding college to database:', err);
             }
@@ -91,14 +96,24 @@ app.post("/swap_colleges", (req, res) => {
 });
 
 app.get("/selected_colleges", (req, res) => {
-    const query = `SELECT college_name, college_rank FROM selected_colleges`;
-    db.query(query, (err, results) => {
+    db.query(`SELECT college_name, college_rank FROM selected_colleges`, (err, results) => {
         if (err) {
             console.error('Error fetching college list from database:', err);
             return res.status(500).send('Server error');
         }
         res.json(results);
     });
+});
+
+app.get("/college_description", (req, res) => {
+    const college_name = req.query.college_name;
+
+    db.query(`SELECT college_desc FROM selected_colleges WHERE college_name = ?`, [college_name], (error, results) => {
+        if (error) {
+            console.error("Error retrieving college description from database:", error);
+        } 
+        res.json(results);
+    })
 });
 
 app.listen(3001, () => {
