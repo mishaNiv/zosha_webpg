@@ -9,12 +9,10 @@ import Login from './Components/login.js';
 import Signup from './Components/signup.js';
 import { HashRouter as Router, Routes, Route} from 'react-router-dom';
 import { CollegeListProvider } from './Components/collegeListContext.js';
-import { APIProvider } from './Components/APIContext.js';
 
 function App() {
   return ( 
     <CollegeListProvider> 
-      <APIProvider>
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -27,7 +25,6 @@ function App() {
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </Router>
-      </APIProvider>
     </CollegeListProvider>
   );
 }

@@ -2,7 +2,7 @@ import cors from 'cors';
 import express from 'express';
 import { getCollegeList, addSelectedCollege, deleteSelectedCollege,  clearCollegeList } from './database.js';
 import { swapColleges } from './database.js';
-import { getSearchResults } from './server.js';
+import { getSearchResults, getCollegeDesc } from './server.js';
 
 const app = express();
 
@@ -14,6 +14,7 @@ app.listen(3001, () => {
 })
 
 app.post("/api/generate_results", getSearchResults);
+app.post("/api/generate_desc", getCollegeDesc);
 app.get("/selected_colleges", getCollegeList);
 app.post("/selected_colleges", addSelectedCollege);
 app.delete("/selected_colleges/:college_name", deleteSelectedCollege);

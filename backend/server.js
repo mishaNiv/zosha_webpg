@@ -35,3 +35,25 @@ export const getSearchResults = async (req, res) => {
         res.status(500).send("Error generating response");
     }
 }
+
+export const getCollegeDesc = async (req, res) => {
+    const { col_name } = req.body;
+
+    const message = `Provide a short description, no more than 50 words, of the following college that
+          would be suited for a student deciding whether to apply for said college: ${col_name}`;
+
+    try {
+        const response = await cohere.generate({
+            model: 'command-r-plus-08-2024',
+            prompt: message,
+            max_tokens: 200,
+            temperature: 0.7,
+        });
+
+        const content = response.generations[0].text.trim();
+        res.json({ result: content });
+    } catch (error) {
+        console.error("Error calling Cohere Command API: ", error);
+        res.status(500).send("Error generating response");
+    }
+}

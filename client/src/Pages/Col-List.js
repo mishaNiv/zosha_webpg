@@ -2,7 +2,6 @@ import '../App.css';
 import Header from '../Components/header.js';
 import ColListButtons from '../Components/colListButtons.js';
 import React, { useContext, useState, useEffect } from 'react';
-import { useAPI } from '../Components/APIContext.js';
 import { CollegeListContext } from '../Components/collegeListContext.js';
 
 const CollegeSummary = ({ college, top, description }) => {
@@ -20,33 +19,26 @@ function ColList() {
   const [ openCollegeIndex, setOpenCollegeIndex ] = useState(null);
   const [ summaryTop, setSummaryTop ] = useState(0);
   const [ collegeDescription, setCollegeDescription ] = useState("");
-  const { API } = useAPI();
 
   useEffect(() => {fetchCollegeList()}, []);
 
   const fetchData = async (college) => {
-    if (college.length === 0 || !API) return;
-
-    let messages = [
-      { role: "system", content: "You are an intelligent assistant for college searches." },
-      {
-        role: "user",
-        content: `Provide a short description, no more than 50 words, of the following college that` + 
-          `would be suited for a student deciding whether to apply for said college: ${college}`,
-      },
-    ];
+    if (college.length === 0) return;
 
     try {
-      const completion = await API.chat.completions.create({
-        messages: messages,
-        model: "gpt-4",
+      const response = await fetch('http://localhost:3001/api/generate_desc', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({ col_name: college })
       });
 
-      const content = completion.choices[0].message.content;
-      if (typeof content === "string") {
-        setCollegeDescription(content);
+      const content = await response.json();
+      const result = content.result;
+
+      if (typeof result === "string") {
+        setCollegeDescription(result);
       } else {
-        console.error("Unexpected content format:", content);
+        console.error("Unexpected content format:", result);
         setCollegeDescription("");
       }
     } catch (error) {
