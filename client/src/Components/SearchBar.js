@@ -32,6 +32,7 @@ const SearchBar = ({ setResults }) => {
     async function fetchData(value) {
         if (value.length === 0) {return;}
 
+        /*
         let messages = [{ role: "system", content: "You are a intelligent assistant for college searches." }];
         messages.push({ role: "user", content: 
             ("Take the following preferences and return a long semicolon separated list of " +
@@ -46,16 +47,30 @@ const SearchBar = ({ setResults }) => {
             messages: messages,
             model: "gpt-4o",
         });
+        */
 
-        const content = completion.choices[0].message.content;
+        try {
+            const response = await fetch('http://localhost:3001/api/generate_results', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json'},
+                body: JSON.stringify({ preferences: value })
+            });
 
-        if (typeof content === 'string') {
-            setResults(content);
-        } else {
-            console.error("Unexpected content format:", content);
+            const content = await response.json();
+            const result = content.result;
+
+            if (response.ok && typeof result === 'string') {
+                setResults(result);
+            } else {
+                console.error("Unexpected content format:", result);
+                setResults("");
+            }    
+        } catch (error) {
+            console.error("Error generating search results: ", error);
             setResults("");
         }
 
+        
         setPlaceHolder("");
     }
     

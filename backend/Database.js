@@ -1,9 +1,5 @@
-import express from 'express';
 import mysql from 'mysql2';
-import cors from 'cors';
-import e from 'express';
 
-const app = express();
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -11,14 +7,19 @@ const db = mysql.createConnection({
     database: 'zosha_database'
 })
 
-app.use(express.json());
-app.use(cors());
 
-app.get('/', (req, res) => {
-    res.json("hello, this is the backend");
-})
+export const getCollegeList = (req, res) => {
+    const query = `SELECT college_name, college_rank FROM selected_colleges`;
+    db.query(query, (err, results) => {
+        if (err) {
+            console.error('Error fetching college list from database:', err);
+            return res.status(500).send('Server error');
+        }
+        res.json(results);
+    });
+}
 
-app.post("/selected_colleges", (req, res) => {
+export const addSelectedCollege = (req, res) => {
     const { college_name } = req.body;
 
     if (!college_name) {
@@ -39,9 +40,9 @@ app.post("/selected_colleges", (req, res) => {
             }
         });
     });
-});
+}
 
-app.delete("/selected_colleges/:college_name", (req, res) => {
+export const deleteSelectedCollege = (req) => {
     const col_name = req.params.college_name;
 
     db.query(`DELETE FROM selected_colleges WHERE college_name = ?`, [col_name], (error, results) => {
@@ -49,17 +50,17 @@ app.delete("/selected_colleges/:college_name", (req, res) => {
             console.error('Error removing college from list: ', error);
         }
     });
-});
+}
 
-app.delete("/selected_colleges", (req, res) => {
+export const clearCollegeList = () => {
     db.query("TRUNCATE TABLE selected_colleges", (error, results) => {
         if (error) {
             console.error('Error clearing college list: ', error);
         }
     })
-})
+}
 
-app.post("/swap_colleges", (req, res) => {
+export const swapColleges = (req, res) => {
     const { firstCollege, secondCollege } = req.body;
 
     db.query(`SELECT college_id, college_rank FROM selected_colleges WHERE college_name IN (?, ?)`, [firstCollege, secondCollege], 
@@ -88,19 +89,5 @@ app.post("/swap_colleges", (req, res) => {
             res.status(200).send('Colleges swapped successfully');
             });
         });
-});
+}
 
-app.get("/selected_colleges", (req, res) => {
-    const query = `SELECT college_name, college_rank FROM selected_colleges`;
-    db.query(query, (err, results) => {
-        if (err) {
-            console.error('Error fetching college list from database:', err);
-            return res.status(500).send('Server error');
-        }
-        res.json(results);
-    });
-});
-
-app.listen(3001, () => {
-    console.log("Connected to backend!");
-})
