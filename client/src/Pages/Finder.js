@@ -1,8 +1,8 @@
 import '../App.css';
 import React, {useState} from 'react';
-import Header from '../Components/Header';
-import SearchBar from '../Components/SearchBar';
-import SearchResults from '../Components/SearchResults';
+import Header from '../Components/header.js';
+import SearchBar from '../Components/searchBar.js';
+import SearchResults from '../Components/searchResults.js';
 
 function Finder() {
 

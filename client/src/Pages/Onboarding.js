@@ -1,6 +1,6 @@
 import '../App.css';
 import {useState } from 'react';
-import Header from '../Components/Header';
+import Header from '../Components/header.js';
 import { Link } from 'react-router-dom';
 
 function Onboarding() {

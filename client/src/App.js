@@ -5,16 +5,14 @@ import Contact from './Pages/Contact';
 import Finder from './Pages/Finder';
 import Fyp from './Pages/Fyp';
 import Onboarding from './Pages/Onboarding';
-import Login from './Components/Login';
-import Signup from './Components/Signup';
+import Login from './Components/login.js';
+import Signup from './Components/signup.js';
 import { HashRouter as Router, Routes, Route} from 'react-router-dom';
-import { CollegeListProvider } from './Components/CollegeListContext';
-import { APIProvider } from './Components/APIContext';
+import { CollegeListProvider } from './Components/collegeListContext.js';
 
 function App() {
   return ( 
     <CollegeListProvider> 
-      <APIProvider>
         <Router>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -27,7 +25,6 @@ function App() {
             <Route path="/signup" element={<Signup />} />
           </Routes>
         </Router>
-      </APIProvider>
     </CollegeListProvider>
   );
 }

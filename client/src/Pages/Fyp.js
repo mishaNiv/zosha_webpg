@@ -1,7 +1,7 @@
 import '../App.css';
 import TinderCard from 'react-tinder-card';
 import {useState } from 'react';
-import Header from '../Components/Header';
+import Header from '../Components/header.js';
 
 function Fyp() {
     // Test list of colleges
