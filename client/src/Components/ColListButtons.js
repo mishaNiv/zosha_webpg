@@ -1,6 +1,6 @@
 import '../App.css';
 import React, { useContext, useState, useEffect } from 'react';
-import { CollegeListProvider, CollegeListContext } from './CollegeListContext';
+import { CollegeListContext } from './collegeListContext';
 
 function ColListButtons(props) {
     const { collegeList, setCollegeList, fetchCollegeList, listSwap, listRemove } = useContext(CollegeListContext);

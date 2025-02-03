@@ -1,6 +1,6 @@
 import '../App.css';
 import React, {useContext} from 'react';
-import { CollegeListContext } from './CollegeListContext';
+import { CollegeListContext } from './collegeListContext';
 
 const FormattedSearchList = ({ list }) => {
     const { listAdd, fetchCollegeList, setCollegeList, collegeList } = useContext(CollegeListContext);

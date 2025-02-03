@@ -1,9 +1,9 @@
 import '../App.css';
-import Header from '../Components/Header.js';
-import ColListButtons from '../Components/ColListButtons.js';
+import Header from '../Components/header.js';
+import ColListButtons from '../Components/colListButtons.js';
 import React, { useContext, useState, useEffect } from 'react';
-import { CollegeListContext } from '../Components/CollegeListContext.js';
 import { useAPI } from '../Components/APIContext.js';
+import { CollegeListContext } from '../Components/collegeListContext.js';
 
 const CollegeSummary = ({ college, top, description }) => {
   return (
@@ -16,7 +16,7 @@ const CollegeSummary = ({ college, top, description }) => {
 };
 
 function ColList() {
-  const { collegeList, setCollegeList, fetchCollegeList, listClear } = useContext(CollegeListContext);
+  const { collegeList, fetchCollegeList, listClear } = useContext(CollegeListContext);
   const [ openCollegeIndex, setOpenCollegeIndex ] = useState(null);
   const [ summaryTop, setSummaryTop ] = useState(0);
   const [ collegeDescription, setCollegeDescription ] = useState("");
